@@ -1,0 +1,17 @@
+viA = Symbol["viA"];
+vjA = Symbol["vjA"];
+
+(*First integral*)
+integral1 = Integrate[s (s - vjA), {s, vjA + viA, 1}];
+latex1 = TeXForm[integral1];
+
+(*Second integral*)
+integral2 = Integrate[(2 - s) (s - vjA), {s, 1, 2}];
+latex2 = TeXForm[integral2];
+
+(*Third integral*)
+integral3 = Integrate[(2 - s) (s - vjA), {s, vjA + viA, 2}];
+latex3 = TeXForm[integral3];
+
+(*Output the results*)
+{latex1, latex2, latex3}
