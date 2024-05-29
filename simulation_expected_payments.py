@@ -3,7 +3,15 @@ from joblib import Parallel, delayed, cpu_count
 
 # Function to perform the draw and calculation
 def draw_and_calculate():
-    v1_A, v2_A, v1_beta, v2_beta = np.random.uniform(0, 1, 4)
+    #Chose distribution from which values are drawn:
+    #v1_A, v2_A, v1_beta, v2_beta = np.random.normal(0, 1, 4)
+    #v1_A, v2_A, v1_beta, v2_beta = np.random.poisson(1, 4)
+    #v1_A, v2_A, v1_beta, v2_beta = np.random.gamma(1, 1, 4)
+    #v1_A, v2_A, v1_beta, v2_beta = np.random.beta(1, 1, 4)
+    #v1_A, v2_A, v1_beta, v2_beta = np.random.chisquare(1, 4)
+    #v1_A, v2_A, v1_beta, v2_beta = np.random.uniform(0, 1, 4)
+    v1_A, v2_A, v1_beta, v2_beta = np.random.exponential(1, 4)
+
     if v1_beta + v2_beta >= v1_A + v2_A:
         E1 = v1_beta + v2_beta - v2_A
         E2 = v1_beta + v2_beta - v1_A
@@ -21,5 +29,5 @@ def run_simulation(n_draws):
     return avg_list_1, avg_list_2
 
 # Test the function with 10 draws
-test_avg_list_1, test_avg_list_2 = run_simulation(1000000000)
+test_avg_list_1, test_avg_list_2 = run_simulation(10000)
 print(test_avg_list_1, test_avg_list_2)
